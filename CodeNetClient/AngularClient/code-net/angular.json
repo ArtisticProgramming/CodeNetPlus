@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "code-note": {
+    "code-net": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/code-note",
+            "outputPath": "dist/code-net",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "code-note:build"
+            "browserTarget": "code-net:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "code-note:build:production"
+              "browserTarget": "code-net:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "code-note:build"
+            "browserTarget": "code-net:build"
           }
         },
         "test": {
@@ -114,15 +114,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "code-note:serve"
+            "devServerTarget": "code-net:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "code-note:serve:production"
+              "devServerTarget": "code-net:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "code-note"
+  "defaultProject": "code-net"
 }
