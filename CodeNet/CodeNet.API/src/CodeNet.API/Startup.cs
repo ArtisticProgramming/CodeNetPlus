@@ -33,6 +33,7 @@ namespace CodeNet.API
             services.AddServices();
             services.AddRepositories();
             services.AddCodeNetContext(Configuration.GetSection("DataSource:ConnectionString").Value);
+             services.AddCors(); // Make sure you call this previous to AddMvc
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +46,11 @@ namespace CodeNet.API
 
             app.UseHttpsRedirection();
 
+            // Make sure you call this before calling app.UseMvc()
+            app.UseCors(
+                options => options.WithOrigins("http://localhost:4200").AllowAnyMethod()
+            );
+
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
@@ -54,7 +60,7 @@ namespace CodeNet.API
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-
+          
             app.UseRouting();
 
             app.UseAuthorization();

@@ -1,40 +1,41 @@
 <style>
-  /* Responsive Styles */
-  @media screen and (max-width: 767px) {
-
-    .card-container > *:not(.circle-link) ,
-    .terminal {
-      width: 100%;
-    }
-
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
-    }
-
-    .card.highlight-card span {
-      margin-left: 72px;
-    }
-
-    svg#rocket-smoke {
-      right: 120px;
-      transform: rotate(-5deg);
-    }
-  }
-
-  @media screen and (max-width: 575px) {
-    svg#rocket-smoke {
-      display: none;
-      visibility: hidden;
-    }
-  }
-
 
 
 </style>
 
-<div class="topnav">
-  <a routerLink="/test-component" >Home</a>
+
+
+<nav  class="navbar navbar-expand-lg navbar-light bg-light">
+  <a  class="navbar-brand"  href="#">Angular CRM</a>
+  <button  class="navbar-toggler"  type="button"  data-toggle="collapse"  data-target="#navbarSupportedContent"  aria-controls="navbarSupportedContent"  aria-expanded="false"  aria-label="Toggle navigation">
+  <span  class="navbar-toggler-icon"></span>
+  </button>
+<div  class="collapse navbar-collapse"  id="navbarSupportedContent">
+  <ul  class="navbar-nav mr-auto">
+      <li  class="nav-item active">
+      <a  class="nav-link"  href="/test-component">Home <span  class="sr-only">(current)</span></a>
+      </li>
+      <li  class="nav-item dropdown">
+      <a  class="nav-link dropdown-toggle"  href="#"  id="navbarDropdown"  role="button"  data-toggle="dropdown"  aria-haspopup="true"  aria-expanded="false">
+      Actions
+      </a>
+      <div  class="dropdown-menu"  aria-labelledby="navbarDropdown">
+      <a  class="dropdown-item" [routerLink]="'/accounts'"> Accounts </a>
+      <a  class="dropdown-item" [routerLink]="'/create-account'"> Create Account </a>
+      <div  class="dropdown-divider"></div>
+      <a  class="dropdown-item" [routerLink]="'/contacts'"> Contacts </a>
+      <a  class="dropdown-item" [routerLink]="'/create-contact'"> Create Contact </a>
+      <div  class="dropdown-divider"></div>
+      <a  class="dropdown-item" [routerLink]="'/leads'"> Leads </a>
+      <a  class="dropdown-item" [routerLink]="'/create-lead'"> Create Lead </a>
+      <div  class="dropdown-divider"></div>
+      <a  class="dropdown-item" [routerLink]="'/opportunities'"> Opportunities </a>
+      <a  class="dropdown-item" [routerLink]="'/create-opportunity'"> Create Opportunity </a>
+      </div>
+      </li>
+</ul>
 </div>
+</nav>
+
 
 <router-outlet></router-outlet>
