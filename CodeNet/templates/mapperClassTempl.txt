@@ -1,0 +1,29 @@
+using CodeNet.Domain.Entities;
+using CodeNet.Domain.Mappers.Interfaces;
+using CodeNet.Domain.Requests;
+using CodeNet.Domain.Responses;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace CodeNet.Domain.Mappers
+{
+    public class @<cl>Mapper : I@<cl>Mapper
+    {
+         public @<cl>Response Map(@<cl> source)
+        {
+            return new @<cl>Response
+            {
+
+            };
+        }
+
+        public @<cl> Map(@<cl>Request source)
+        {
+            return new @<cl>
+            {
+
+            };
+        }
+    }
+}
