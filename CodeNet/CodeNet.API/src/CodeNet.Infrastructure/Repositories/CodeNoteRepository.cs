@@ -26,12 +26,19 @@ namespace CodeNet.Infrastructure.Repositories
 
         public async Task<IEnumerable<CodeNote>> GetAsync()
         {
-            var model = await _codeNetContext.CodeNote.AsNoTracking().ToListAsync();
+            var model = await _codeNetContext.CodeNote.Include(x => x.CodeNetDetails)
+                                                      .Include(z => z.GeneralSubject)
+                                                      .Include(z => z.NoteType)
+                                                      .Include(z => z.SpecificSubject)
+                                                      .Include(z => z.Project)
+                                                      .Include(z => z.User)
+                                                      .AsNoTracking()
+                                                      .ToListAsync();
             return model;
         }
 
         public async Task<CodeNote> GetAsync(long id)
-        { 
+        {
             var model = await _codeNetContext.CodeNote.FindAsync(id);
 
             if (model == null)

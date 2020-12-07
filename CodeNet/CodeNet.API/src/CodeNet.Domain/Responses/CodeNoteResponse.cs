@@ -18,6 +18,12 @@ namespace CodeNet.Domain.Responses
         public DateTimeOffset ModifiedDate { get; set; }
         public long UserId { get; set; }
 
+        public GeneralSubjectResponse GeneralSubjectResponse { get; set; }
+        public NoteTypeResponse NoteTypeResponse { get; set; }
+        public SpecificSubjectResponse SpecificSubjectResponse { get; set; }
+        public ProjectResponse ProjectResponse { get; set; }
+        public UserResponse UserResponse { get; set; }
+
 
     }
 }

@@ -10,6 +10,26 @@ namespace CodeNet.Domain.Mappers
 {
     public class CodeNoteMapper : ICodeNoteMapper
     {
+        private IGeneralSubjectMapper _generalSubjectMapper { get; set; }
+        private INoteTypeMapper _noteTypeMapper { get; set; }
+        private IUserMapper _userMapper { get; set; }
+        private IProjectMapper _projectMapper { get; set; }
+        //private CodeNoteDetailMapper _codeNoteDetailMapper { get; set; }
+        private ISpecificSubjectMapper _specificSubjectMapper { get; set; }
+
+        public CodeNoteMapper(IGeneralSubjectMapper generalSubjectMapper, INoteTypeMapper noteTypeMapper,
+            IUserMapper userMapper,
+            IProjectMapper projectMapper, ISpecificSubjectMapper specificSubjectMapper)
+        {
+            _generalSubjectMapper = generalSubjectMapper;
+            _noteTypeMapper = noteTypeMapper;
+            _userMapper = userMapper;
+            _projectMapper = projectMapper;
+            //_codeNoteDetailMapper = codeNoteDetailMapper;
+            _specificSubjectMapper = specificSubjectMapper;
+        }
+
+
         public CodeNoteResponse Map(CodeNote source)
         {
             return new CodeNoteResponse
@@ -25,6 +45,12 @@ namespace CodeNet.Domain.Mappers
                 CreatedDate = source.CreatedDate,
                 ModifiedDate = source.ModifiedDate,
                 UserId = source.UserId,
+
+                GeneralSubjectResponse = _generalSubjectMapper.Map(source.GeneralSubject),
+                NoteTypeResponse = _noteTypeMapper.Map(source.NoteType),
+                ProjectResponse = _projectMapper.Map(source.Project),
+                SpecificSubjectResponse = _specificSubjectMapper.Map(source.SpecificSubject),
+                UserResponse = _userMapper.Map(source.User)
             };
         }
 
