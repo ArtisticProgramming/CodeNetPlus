@@ -10,8 +10,10 @@ namespace CodeNet.Domain.Mappers
 {
     public class UserMapper : IUserMapper
     {
-         public UserResponse Map(User source)
+        public UserResponse Map(User source)
         {
+            if (source == null)
+                return null;
             return new UserResponse
             {
                 Id = source.Id,
@@ -23,6 +25,8 @@ namespace CodeNet.Domain.Mappers
 
         public User Map(UserRequest source)
         {
+            if (source == null)
+                return null;
             return new User
             {
                 Id = source.Id,

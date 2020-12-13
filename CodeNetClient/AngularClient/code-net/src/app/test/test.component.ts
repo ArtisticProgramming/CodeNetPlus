@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
+import { CodeNote } from './CodeNote'
+
 
 @Component({
   selector: 'test-root',
@@ -13,21 +15,25 @@ export class TestComponent {
     private http: HttpClient)
     // @Inject('BASE_URL') private baseUrl: string) 
   {
+    
+  }
+
+
+  ngOnInit() {
+    this.load();
   }
   
   title = 'HELLOOOOOOOOOOOOOOOOOOOOOOOOOO';
+  codeNoteModel:CodeNote;
 
-  model :any = {}
-
-  onClickSubmit(name) {
+  load() {
     // alert(name)
     let url= "https://localhost:44373/api/CodeNote";
-    this.http.get<any>(url, {})
+    this.http.get<CodeNote>(url, {})
       .subscribe(result => {
-        this.model = result
+        debugger;
+        this.codeNoteModel = result
       }, error => console.error(error));
   }
-
-
   // name : String="";
 }

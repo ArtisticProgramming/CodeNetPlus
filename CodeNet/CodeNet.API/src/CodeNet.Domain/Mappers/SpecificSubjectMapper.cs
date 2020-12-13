@@ -12,6 +12,8 @@ namespace CodeNet.Domain.Mappers
     {
          public SpecificSubjectResponse Map(SpecificSubject source)
         {
+            if (source == null)
+                return null;
             return new SpecificSubjectResponse
             {
                 Id = source.Id,
@@ -22,8 +24,11 @@ namespace CodeNet.Domain.Mappers
 
         public SpecificSubject Map(SpecificSubjectRequest source)
         {
+            if (source == null)
+                return null;
             return new SpecificSubject
             {
+
                 Id = source.Id,
                 Name = source.Name,
                 GeneralSubjectId = source.GeneralSubjectId,

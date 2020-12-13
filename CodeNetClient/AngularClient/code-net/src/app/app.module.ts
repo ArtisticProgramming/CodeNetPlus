@@ -7,11 +7,19 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { CodeNoteFormComponent } from './code-note-form/code-note-form.component';
+
+
+export function getBaseUrl() {
+   let apiServerUrl = "https://localhost:44373/"
+   return apiServerUrl;
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
+    CodeNoteFormComponent,
   ],
   imports: [
     FormsModule,
@@ -21,8 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers:[ { provide: 'BASE_URL', useFactory: getBaseUrl}],
   bootstrap: [AppComponent]
 })
 
 export class AppModule { }
+

@@ -10,8 +10,10 @@ namespace CodeNet.Domain.Mappers
 {
     public class NoteTypeMapper : INoteTypeMapper
     {
-         public NoteTypeResponse Map(NoteType source)
+        public NoteTypeResponse Map(NoteType source)
         {
+            if (source == null)
+                return null;
             return new NoteTypeResponse
             {
                 Id = source.Id,
@@ -22,6 +24,8 @@ namespace CodeNet.Domain.Mappers
 
         public NoteType Map(NoteTypeRequest source)
         {
+            if (source == null)
+                return null;
             return new NoteType
             {
                 Id = source.Id,

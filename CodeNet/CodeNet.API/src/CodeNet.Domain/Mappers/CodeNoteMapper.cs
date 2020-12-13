@@ -32,6 +32,8 @@ namespace CodeNet.Domain.Mappers
 
         public CodeNoteResponse Map(CodeNote source)
         {
+            if (source == null)
+                return null;
             return new CodeNoteResponse
             {
                 Id = source.Id,
@@ -56,6 +58,8 @@ namespace CodeNet.Domain.Mappers
 
         public CodeNote Map(CodeNoteRequest source)
         {
+            if (source == null)
+                return null;
             return new CodeNote
             {
                 Id = source.Id,

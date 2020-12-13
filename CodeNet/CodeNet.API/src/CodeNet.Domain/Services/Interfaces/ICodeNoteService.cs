@@ -1,4 +1,5 @@
 ﻿using CodeNet.Domain.Entities;
+using CodeNet.Domain.Requests;
 using CodeNet.Domain.Responses;
 using System;
 using System.Collections.Generic;
@@ -10,5 +11,6 @@ namespace CodeNet.Domain.Services.Interfaces
     public interface ICodeNoteService
     {
         Task<IEnumerable<CodeNoteResponse>> GetCodeNetAsync();
+        Task<CodeNoteRequest> AddCodeNote(CodeNoteRequest codeNoteRequest);
     }
 }

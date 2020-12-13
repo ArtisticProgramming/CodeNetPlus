@@ -12,6 +12,8 @@ namespace CodeNet.Domain.Mappers
     {
         public CodeNoteDetailResponse Map(CodeNoteDetail source)
         {
+            if (source == null)
+                return null;
             return new CodeNoteDetailResponse
             {
                 Id = source.Id,
@@ -24,6 +26,8 @@ namespace CodeNet.Domain.Mappers
 
         public CodeNoteDetail Map(CodeNoteDetailRequest source)
         {
+            if (source == null)
+                return null;
             return new CodeNoteDetail
             {
                 Id = source.Id,

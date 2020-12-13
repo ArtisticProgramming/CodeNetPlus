@@ -1,0 +1,15 @@
+<div>
+    <h2>Code Note Form</h2>
+    <form>
+        <div class="form-group">
+            <label for="">Title:</label>
+            <input type="text" class="form-control" placeholder="" [(ngModel)]="model.Title" name="title">
+        </div>
+        <div class="form-group">
+            <label for="">Desc:</label>
+            <textarea [(ngModel)]="model.description" name='description' class="form-control"></textarea>
+        </div>
+        
+        <button type="submit" (click)="addCodeNote()" class="btn btn-primary">Submit</button>
+    </form>
+</div>

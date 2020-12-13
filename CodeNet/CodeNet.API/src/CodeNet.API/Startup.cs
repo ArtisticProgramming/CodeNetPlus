@@ -48,7 +48,7 @@ namespace CodeNet.API
 
             // Make sure you call this before calling app.UseMvc()
             app.UseCors(
-                options => options.WithOrigins("http://localhost:4200").AllowAnyMethod()
+                options => options.WithOrigins("http://localhost:4200").AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowAnyHeader()
             );
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.

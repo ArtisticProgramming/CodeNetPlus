@@ -10,8 +10,11 @@ namespace CodeNet.Domain.Mappers
 {
     public class ProjectMapper : IProjectMapper
     {
-         public ProjectResponse Map(Project source)
+
+        public ProjectResponse Map(Project source)
         {
+            if (source == null)
+                return null;
             return new ProjectResponse
             {
                 Id = source.Id,
@@ -22,6 +25,8 @@ namespace CodeNet.Domain.Mappers
 
         public Project Map(ProjectRequest source)
         {
+            if (source == null)
+                return null;
             return new Project
             {
                 Id = source.Id,

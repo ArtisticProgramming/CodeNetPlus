@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CodeNet.Domain.Entities;
+using CodeNet.Domain.Requests;
 using CodeNet.Domain.Responses;
 using CodeNet.Domain.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,13 @@ namespace CodeNet.API.Controllers
         {
             return await _codeNoteService.GetCodeNetAsync();
         }
+
+        [HttpPost]
+        public async Task<CodeNoteRequest> Post(CodeNoteRequest codeNoteRequest)
+        {
+            return await _codeNoteService.AddCodeNote(codeNoteRequest);
+        }
+
 
         // GET api/<CodeNoteController>/5
         [HttpGet("{id}")]

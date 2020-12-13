@@ -10,8 +10,10 @@ namespace CodeNet.Domain.Mappers
 {
     public class GeneralSubjectMapper : IGeneralSubjectMapper
     {
-         public GeneralSubjectResponse Map(GeneralSubject source)
+        public GeneralSubjectResponse Map(GeneralSubject source)
         {
+            if (source == null)
+                return null;
             return new GeneralSubjectResponse
             {
                 Id = source.Id,
@@ -22,6 +24,8 @@ namespace CodeNet.Domain.Mappers
 
         public GeneralSubject Map(GeneralSubjectRequest source)
         {
+            if (source == null)
+                return null;
             return new GeneralSubject
             {
                 Id = source.Id,

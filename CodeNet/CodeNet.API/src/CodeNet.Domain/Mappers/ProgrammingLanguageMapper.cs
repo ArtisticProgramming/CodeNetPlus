@@ -12,6 +12,8 @@ namespace CodeNet.Domain.Mappers
     {
          public ProgrammingLanguageResponse Map(ProgrammingLanguage source)
         {
+            if (source == null)
+                return null;
             return new ProgrammingLanguageResponse
             {
                 Id = source.Id,
@@ -21,6 +23,8 @@ namespace CodeNet.Domain.Mappers
 
         public ProgrammingLanguage Map(ProgrammingLanguageRequest source)
         {
+            if (source == null)
+                return null;
             return new ProgrammingLanguage
             {
                 Id = source.Id,

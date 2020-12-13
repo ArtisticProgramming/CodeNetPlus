@@ -2,6 +2,7 @@
 using CodeNet.Domain.Mappers;
 using CodeNet.Domain.Mappers.Interfaces;
 using CodeNet.Domain.Repositories;
+using CodeNet.Domain.Requests;
 using CodeNet.Domain.Responses;
 using CodeNet.Domain.Services.Interfaces;
 using System;
@@ -20,6 +21,11 @@ namespace CodeNet.Domain.Services
         {
             _codeNoteRepository = codeNoteRepository;
             _codeNoteMapper = codeNoteMapper;
+        }
+
+        public Task<CodeNoteRequest> AddCodeNote(CodeNoteRequest codeNoteRequest)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<IEnumerable<CodeNoteResponse>> GetCodeNetAsync()
